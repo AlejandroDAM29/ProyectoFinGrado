@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/authLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/madera_auth"
+    android:orientation="vertical"
+    tools:context=".AuthActivity">
+
+
+    <EditText
+        android:id="@+id/emailEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@color/white"
+        android:hint="@string/correo"
+        android:inputType="text"
+        android:textSize="@dimen/texto_login" />
+
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/distancia" />
+
+    <EditText
+        android:id="@+id/passwordEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:hint="@string/contrasena"
+        android:inputType="text"
+        android:textSize="@dimen/texto_login" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/distancia" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:orientation="horizontal">
+
+
+        <Button
+            android:id="@+id/botonRegistro"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/altura_botones_registros"
+            android:layout_marginEnd="5dp"
+            android:layout_weight="1"
+            android:background="#F57C00"
+            android:elevation="10dp"
+            android:text="@string/registro"
+            android:textColor="@color/white"
+            android:textSize="35sp" />
+
+        <Button
+            android:id="@+id/botonAcceso"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/altura_botones_registros"
+            android:layout_marginStart="5dp"
+            android:layout_weight="1"
+            android:background="#039BE5"
+            android:elevation="10dp"
+            android:text="@string/acceder"
+            android:textColor="@color/white"
+            android:textSize="35sp" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/botonGoogle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/altura_botones_registros"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginRight="4dp"
+        android:background="@color/white"
+        android:drawableStart="@mipmap/icono_google"
+        android:paddingStart="16dp"
+        android:text="Google"
+        android:textAlignment="textStart"
+        android:textSize="35sp" />
+
+
+</LinearLayout>
+

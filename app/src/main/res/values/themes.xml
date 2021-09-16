@@ -1,0 +1,35 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.ProyectoFinGrado" parent="Theme.AppCompat.DayNight"></style>
+
+    <!--Aquí pondré los valores que no cambian de los componentes de la aplicación.
+    ______________________________________________________________________________________________________________________________________________-->
+
+
+    <!--Estilo de botón principal para entrar a las opciones-->
+    <style name="boton_principal">
+        <item name="android:background">@drawable/degradado_boton_principal</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/texto_entrar_principal</item>
+        <item name="android:text">@string/boton_entrada</item>
+        <item name="android:padding">4dp</item>
+    </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</resources>

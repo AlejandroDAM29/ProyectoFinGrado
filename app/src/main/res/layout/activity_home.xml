@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AuthActivity"
+    android:orientation="vertical"
+    android:background="@color/teal_200">
+
+
+    <TextView
+        android:id="@+id/texto1"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Email"
+        android:background="@color/white"
+        android:textSize="@dimen/texto_login" />
+
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/distancia" />
+
+    <TextView
+        android:id="@+id/texto2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Proveedor"
+        android:background="@color/white"
+        android:textSize="@dimen/texto_login"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/distancia" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <Button
+            android:id="@+id/logOutButton"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/altura_botones_registros"
+            android:layout_marginEnd="5dp"
+            android:layout_weight="1"
+            android:background="#F57C00"
+            android:elevation="10dp"
+            android:text="Cerrar sesion"
+            android:textSize="35sp" />
+
+    </LinearLayout>
+
+
+</LinearLayout>
+

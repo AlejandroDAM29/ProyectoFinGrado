@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="texto_entrar_principal">45sp</dimen>
+
+    <!--Actividad de loging-->
+    <dimen name="texto_login">48sp</dimen>
+    <dimen name="distancia">10dp</dimen>
+    <dimen name="altura_botones_registros">70dp</dimen>
+</resources>

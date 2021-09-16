@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "383578448761",
+    "project_id": "fir-recetario-septiembre",
+    "storage_bucket": "fir-recetario-septiembre.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:383578448761:android:b5de2dba4d0d79274e85a8",
+        "android_client_info": {
+          "package_name": "com.example.proyectofingrado"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "383578448761-2cc9p1b42m5vbvqc87o0in9k0d344kci.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkgMtUdGzt2GWG7q3eMO7-fROfenqrnoI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "383578448761-2cc9p1b42m5vbvqc87o0in9k0d344kci.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
