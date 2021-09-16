@@ -12,7 +12,7 @@
     <string name="contrasena">Password</string>
     <string name="registro">Register</string>
     <string name="acceder">Access</string>
-    <string name="default_web_client_id">383578448761-2cc9p1b42m5vbvqc87o0in9k0d344kci.apps.googleusercontent.com</string>
+
 
     <!--Archivo de sharedePreference-->
     <string name="archivo_login">com.example.proyectofingrado.PREFERENCE_FILE_KEY</string>

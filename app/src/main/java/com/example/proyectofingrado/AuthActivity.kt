@@ -11,15 +11,15 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.firebase.auth.FirebaseAuth
 import java.util.regex.Pattern
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-
-
+import com.google.android.gms.common.api.ApiException
+import com.google.firebase.auth.GoogleAuthProvider
 
 
 class AuthActivity : AppCompatActivity() {
 
 
     private lateinit var binding: ActivityAuthBinding
-
+    private val INICIO_GOOGLE = 100
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -97,20 +97,57 @@ class AuthActivity : AppCompatActivity() {
 
         binding.botonGoogle.setOnClickListener{
             //Configuración de autentificación
-            val google_conf = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_GAMES_SIGN_IN)
+            val google_conf = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build()
 
             //Configuro los datos del cliente Google con los datos antriores.
             val googleCliente = GoogleSignIn.getClient(this,google_conf)
-
-
+            googleCliente.signOut()
+            startActivityForResult(googleCliente.signInIntent, INICIO_GOOGLE)
 
         }//Fin del botón de Google
 
 
     }//Fin del método setup
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if(requestCode==INICIO_GOOGLE){
+            val task = GoogleSignIn.getSignedInAccountFromIntent(data)
+
+            try{
+                val account = task.getResult(ApiException::class.java)
+
+                if(account  != null){
+                    val credential = GoogleAuthProvider.getCredential(account.idToken,null)
+
+                    FirebaseAuth.getInstance().signInWithCredential(credential).addOnCompleteListener{
+
+                        if(it.isSuccessful){
+                            accesoCuenta(account.email?:"",Proveedor.GOOGLE)
+                        }else{
+                            val acceso = AlertDialog.Builder(this)
+                            acceso.setTitle("Información incorrecta")
+                            acceso.setMessage("El email o contraseña introducidos no son correctos. Inténtalo de nuevo")
+                            acceso.setPositiveButton("Ok",null)
+                            //Meto toda la configuración del build en una variable de tipo AlertDialog y lo muestro con show()
+                            val mensaje: AlertDialog = acceso.create()
+                            mensaje.show()
+                        }
+
+                    }//Fin de addOnCompleteListener
+
+                }//Fin del if
+            }catch (e:ApiException){
+                e.printStackTrace()
+            }
+
+
+        }//Fin de if
+    }//Fin de onActivityResult
 
 
 
