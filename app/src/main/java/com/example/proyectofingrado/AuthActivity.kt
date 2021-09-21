@@ -62,7 +62,7 @@ class AuthActivity : AppCompatActivity() {
                     if (it.isSuccessful) {
                         /*Permito que haya un String vacío para quitar el error, porque debería
                         exister siempre el correo al llegar a este punto*/
-                        accesoCuenta(it.result?.user?.email ?: "", Proveedor.CORREO)
+                        accesoCuenta(it.result?.user?.email ?: "")
                     } else {
                         //Si no fue bien, ejecuto el método para el mensaje de error
                         mensajeError(
@@ -93,7 +93,7 @@ class AuthActivity : AppCompatActivity() {
                     binding.passwordEditText.text.toString()
                 ).addOnCompleteListener {
                     if (it.isSuccessful) {
-                        accesoCuenta(it.result?.user?.email ?: "", Proveedor.CORREO)
+                        accesoCuenta(it.result?.user?.email ?: "")
                     } else {
                         val acceso = AlertDialog.Builder(this)
                         acceso.setTitle("Información incorrecta")
@@ -142,7 +142,7 @@ class AuthActivity : AppCompatActivity() {
                         .addOnCompleteListener {
 
                             if (it.isSuccessful) {
-                                accesoCuenta(account.email ?: "", Proveedor.GOOGLE)
+                                accesoCuenta(account.email ?: "")
                             } else {
                                 val acceso = AlertDialog.Builder(this)
                                 acceso.setTitle("Información incorrecta")
@@ -222,10 +222,9 @@ class AuthActivity : AppCompatActivity() {
 
     /*Si no hay error y el usuario se loguea, se ejecutará este menú, donde se mostrará la pantalla
     * de cuenta de usuario*/
-    private fun accesoCuenta(email: String, proveedor: Proveedor) {
+    private fun accesoCuenta(email: String) {
         val cuentaIntent = Intent(this, HomeActivity::class.java).apply {
             putExtra("email", email)
-            putExtra("proveedor", proveedor.toString())
         }
         startActivity(cuentaIntent)
     }
@@ -239,15 +238,14 @@ class AuthActivity : AppCompatActivity() {
         val datos_usuario =
             getSharedPreferences(getString(R.string.archivo_login), Context.MODE_PRIVATE)
         val email = datos_usuario.getString("email", null)
-        val proveedor = datos_usuario.getString("proveedor", null)
 
         //Si el proveedor y el email no son nulos, entonces es que alguien ya tenemos la sesión iniciada en nuestra app
-        if (email != null && proveedor != null) {
+        if (email != null) {
 
             //Si accedo con la cuenta ya creada de antes, haré invisible la pantalla de auth.
             binding.authLayout.visibility = View.INVISIBLE
 
-            accesoCuenta(email, Proveedor.valueOf(proveedor))
+            accesoCuenta(email)
         }
 
     }//Fin del método inicio sesión

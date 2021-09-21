@@ -1,6 +1,9 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="ThemeProyectoFinGrado" parent="Theme.AppCompat.DayNight"></style>
+    <style name="ThemeProyectoFinGrado" parent="Theme.AppCompat.DayNight">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
 
     <!--Aquí pondré los valores que no cambian de los componentes de la aplicación.
     ______________________________________________________________________________________________________________________________________________-->
@@ -8,6 +11,12 @@
     <!--Estilo para el splashScreen-->
     <style name="SplashScreen" parent="ThemeProyectoFinGrado">
         <item name="android:windowBackground">@drawable/splashscreen</item>
+    </style>
+
+    <style name="barra_toolbar">
+        <item name="android:background">@drawable/degradado_barra_principal</item>
+        <item name="android:textColor">@color/white</item>
+
     </style>
 
 </resources>

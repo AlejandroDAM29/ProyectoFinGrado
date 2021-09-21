@@ -1,59 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ActivityAuthBinding"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AuthActivity"
     android:orientation="vertical"
-    android:background="@color/teal_200">
+    android:background="@drawable/home_background">
 
+    <!--Incluyo el toolvar en la activity-->
+    <include layout="@layout/tool_bar"
+        android:id="@+id/tool_bar"></include>
 
     <TextView
         android:id="@+id/texto1"
-        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Email"
-        android:background="@color/white"
-        android:textSize="@dimen/texto_login" />
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="@dimen/texto_login"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.144" />
 
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/distancia" />
-
-    <TextView
-        android:id="@+id/texto2"
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Proveedor"
-        android:background="@color/white"
-        android:textSize="@dimen/texto_login"/>
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.357" />
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/distancia" />
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499" /><![CDATA[
 
-    <LinearLayout
+
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
 
-        <Button
-            android:id="@+id/logOutButton"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/altura_botones_registros"
-            android:layout_marginEnd="5dp"
-            android:layout_weight="1"
-            android:background="#F57C00"
-            android:elevation="10dp"
-            android:text="Cerrar sesion"
-            android:textSize="35sp" />
-
-    </LinearLayout>
 
 
-</LinearLayout>
+]]>
+</androidx.constraintlayout.widget.ConstraintLayout>
 
