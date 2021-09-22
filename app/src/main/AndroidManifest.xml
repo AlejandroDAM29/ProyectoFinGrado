@@ -10,19 +10,22 @@
         android:supportsRtl="true"
         android:theme="@style/ThemeProyectoFinGrado">
         <activity
+            android:name=".Informacion"
+            android:exported="true"
+            android:theme="@style/Theme.MaterialComponents.Dialog.FixedSize"/>
+        <activity
             android:name=".HomeActivity"
-            android:exported="true" />
-        <!-- Actividad de autentificación -->
+            android:exported="true" /> <!-- Actividad de autentificación -->
         <activity
             android:name=".AuthActivity"
-            android:theme="@style/SplashScreen"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity><!-- Esta actividad solamente se ve en vertical. Está marcado con la propiedad: screenOrientation -->
+        </activity>
     </application>
 
 </manifest>

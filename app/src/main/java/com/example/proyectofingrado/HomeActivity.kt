@@ -1,6 +1,7 @@
 package com.example.proyectofingrado
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -69,7 +70,8 @@ class HomeActivity : AppCompatActivity() {
 
         //Opciones posibles
         if (elegida == R.id.informacion){
-            return true
+            var ir_info = Intent(this, Informacion::class.java)
+            startActivity(ir_info)
         }
 
         if (elegida == R.id.cerrar_sesion){
