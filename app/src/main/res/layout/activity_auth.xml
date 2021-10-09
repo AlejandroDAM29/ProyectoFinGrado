@@ -72,6 +72,8 @@
 
     </LinearLayout>
 
+
+    <!--Comprobar el nombre para ver si dejo lo de google entero o no-->
     <Button
         android:id="@+id/botonGoogle"
         android:layout_width="match_parent"
@@ -82,7 +84,7 @@
         android:background="@color/white"
         android:drawableStart="@mipmap/icono_google"
         android:paddingStart="16dp"
-        android:text="Google"
+        android:text="google"
         android:textAlignment="textStart"
         android:textSize="35sp" />
 

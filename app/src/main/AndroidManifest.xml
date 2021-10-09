@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.proyectofingrado">
+    <!-- Permiso de internet para conectarme a la base de datos MySQL -->
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -10,9 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/ThemeProyectoFinGrado">
         <activity
+            android:name=".DatosUsuario"
+            android:exported="true" />
+        <activity
             android:name=".Informacion"
             android:exported="true"
-            android:theme="@style/Theme.MaterialComponents.Dialog.FixedSize"/>
+            android:theme="@style/Theme.MaterialComponents.Dialog.FixedSize" />
         <activity
             android:name=".HomeActivity"
             android:exported="true" /> <!-- Actividad de autentificación -->
