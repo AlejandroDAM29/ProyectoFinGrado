@@ -8,9 +8,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.widget.Toolbar
 import com.android.volley.Request
 import com.android.volley.RequestQueue
@@ -29,6 +27,8 @@ lateinit var etEmail: String
 lateinit var etPeso: EditText
 lateinit var etAltura: EditText
 lateinit var etSexo: EditText
+lateinit var radioGroup: RadioGroup
+var etActividad:String = "Sedentaria"
 lateinit var etEdad: EditText
 lateinit var btnInsert:Button
 
@@ -39,7 +39,7 @@ lateinit var toolbar: Toolbar
 lateinit var requesrQueue: RequestQueue
 val HttpURI = "https://alejandroexpdeveloper.com/usuario.php"
 
-class DatosUsuario : AppCompatActivity() {
+class DatosUsuario : AppCompatActivity(), RadioGroup.OnCheckedChangeListener{
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_datos_usuario)
@@ -48,6 +48,7 @@ class DatosUsuario : AppCompatActivity() {
         etPeso = findViewById(R.id.etPeso)
         etAltura = findViewById(R.id.etAltura)
         etSexo = findViewById(R.id.etSexo)
+        radioGroup = findViewById(R.id.etRadioGroup)
         etEdad = findViewById(R.id.etEdad)
 
         btnInsert = findViewById(R.id.btnInsert)
@@ -67,7 +68,7 @@ class DatosUsuario : AppCompatActivity() {
         btnInsert.setOnClickListener{
             insertarDatos()
         }
-
+        radioGroup.setOnCheckedChangeListener(this)
 
 
 
@@ -126,11 +127,11 @@ class DatosUsuario : AppCompatActivity() {
         val peso = etPeso.text.toString()
         val altura = etAltura.text.toString()
         val sexo = etSexo.text.toString()
-        //Falta aquí poner la casilla de la actividad
+
         val edad = etEdad.text.toString()
 
         if (peso.isEmpty() || altura.isEmpty() || sexo.isEmpty() || edad.isEmpty()) {
-            Toast.makeText(this, "Debes introducir los dos campos"+". Email: "+email, Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "Debes introducir los dos campos"+". RadioButton seleccionado: ", Toast.LENGTH_LONG).show()
         }else{
             //Cadena a ejecutar en el web Service
             val stringRequest:StringRequest = object : StringRequest(Request.Method.POST,
@@ -160,6 +161,7 @@ class DatosUsuario : AppCompatActivity() {
                     parametros.put("altura",altura)
                     parametros.put("sexo",sexo)
                     parametros.put("edad",edad)
+                    parametros.put("actividad", etActividad)
                     parametros.put("opcion","insert")
                     return parametros
                 }
@@ -172,6 +174,22 @@ class DatosUsuario : AppCompatActivity() {
     }//Fin del método de insertarDatos
 
 
+    //Esta función asignará un texto a la variable etAtividad, en función del radioButton seleccionado
+    override fun onCheckedChanged(p0: RadioGroup?, checkedID: Int) {
+        if (checkedID == R.id.etSedentaria){
+            etActividad = "Sedentaria"
+        }
+
+        if (checkedID == R.id.etModerada){
+            etActividad = "Moderada"
+        }
+
+        if (checkedID == R.id.etIntensa){
+            etActividad == "Intensa"
+        }
+
+
+    }
 
 
 }
