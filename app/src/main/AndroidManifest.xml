@@ -12,17 +12,17 @@
         android:supportsRtl="true"
         android:theme="@style/ThemeProyectoFinGrado">
         <activity
-            android:name=".DatosUsuario"
+            android:name=".Pages.DatosUsuario"
             android:exported="true" />
         <activity
-            android:name=".Informacion"
+            android:name=".Pages.Informacion"
             android:exported="true"
             android:theme="@style/Theme.MaterialComponents.Dialog.FixedSize" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".Pages.HomeActivity"
             android:exported="true" /> <!-- Actividad de autentificación -->
         <activity
-            android:name=".AuthActivity"
+            android:name=".Pages.AuthActivity"
             android:exported="true"
             android:theme="@style/SplashScreen">
             <intent-filter>

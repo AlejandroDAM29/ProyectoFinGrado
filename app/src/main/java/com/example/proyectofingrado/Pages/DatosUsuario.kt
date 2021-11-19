@@ -1,4 +1,4 @@
-package com.example.proyectofingrado
+package com.example.proyectofingrado.Pages
 
 import android.content.Context
 import android.content.Intent
@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import android.widget.*
 import androidx.appcompat.widget.Toolbar
 import com.android.volley.Request
@@ -15,8 +14,7 @@ import com.android.volley.RequestQueue
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
-import com.example.proyectofingrado.databinding.ActivityDatosUsuarioBinding
-import com.example.proyectofingrado.databinding.ActivityHomeBinding
+import com.example.proyectofingrado.R
 import com.google.firebase.auth.FirebaseAuth
 import org.json.JSONObject
 
@@ -26,7 +24,8 @@ import org.json.JSONObject
 lateinit var etEmail: String
 lateinit var etPeso: EditText
 lateinit var etAltura: EditText
-lateinit var etSexo: EditText
+lateinit var radioGroup2:RadioGroup
+var etSexo: String = "Hombre"
 lateinit var radioGroup: RadioGroup
 var etActividad:String = "Sedentaria"
 lateinit var etEdad: EditText
@@ -47,10 +46,9 @@ class DatosUsuario : AppCompatActivity(), RadioGroup.OnCheckedChangeListener{
 
         etPeso = findViewById(R.id.etPeso)
         etAltura = findViewById(R.id.etAltura)
-        etSexo = findViewById(R.id.etSexo)
         radioGroup = findViewById(R.id.etRadioGroup)
         etEdad = findViewById(R.id.etEdad)
-
+        radioGroup2 = findViewById(R.id.radioGroup2)
         btnInsert = findViewById(R.id.btnInsert)
 
 
@@ -69,6 +67,7 @@ class DatosUsuario : AppCompatActivity(), RadioGroup.OnCheckedChangeListener{
             insertarDatos()
         }
         radioGroup.setOnCheckedChangeListener(this)
+        radioGroup2.setOnCheckedChangeListener(this)
 
 
 
@@ -107,7 +106,7 @@ class DatosUsuario : AppCompatActivity(), RadioGroup.OnCheckedChangeListener{
             datos_usuario.apply()
 
             //Ir a la pantalla de anterior para salir de la sesión de usuario
-            val intent = Intent(this,AuthActivity::class.java)
+            val intent = Intent(this, AuthActivity::class.java)
             startActivity(intent)
         }
 
@@ -126,11 +125,10 @@ class DatosUsuario : AppCompatActivity(), RadioGroup.OnCheckedChangeListener{
         val email:String = bundle?.getString("email").toString()
         val peso = etPeso.text.toString()
         val altura = etAltura.text.toString()
-        val sexo = etSexo.text.toString()
 
         val edad = etEdad.text.toString()
 
-        if (peso.isEmpty() || altura.isEmpty() || sexo.isEmpty() || edad.isEmpty()) {
+        if (peso.isEmpty() || altura.isEmpty() || edad.isEmpty()) {
             Toast.makeText(this, "Debes introducir los dos campos"+". RadioButton seleccionado: ", Toast.LENGTH_LONG).show()
         }else{
             //Cadena a ejecutar en el web Service
@@ -159,7 +157,7 @@ class DatosUsuario : AppCompatActivity(), RadioGroup.OnCheckedChangeListener{
                     parametros.put("email",email)
                     parametros.put("peso", peso)
                     parametros.put("altura",altura)
-                    parametros.put("sexo",sexo)
+                    parametros.put("sexo", etSexo)
                     parametros.put("edad",edad)
                     parametros.put("actividad", etActividad)
                     parametros.put("opcion","insert")
@@ -176,18 +174,13 @@ class DatosUsuario : AppCompatActivity(), RadioGroup.OnCheckedChangeListener{
 
     //Esta función asignará un texto a la variable etAtividad, en función del radioButton seleccionado
     override fun onCheckedChanged(p0: RadioGroup?, checkedID: Int) {
-        if (checkedID == R.id.etSedentaria){
-            etActividad = "Sedentaria"
+        when(checkedID) {
+            R.id.etSedentaria -> etActividad = "Sedentaria"
+            R.id.etModerada -> etActividad = "Moderada"
+            R.id.etIntensa -> etActividad = "Intensa"
+            R.id.etHombre -> etSexo = "Hombre"
+            R.id.etMujer -> etSexo = "Mujer"
         }
-
-        if (checkedID == R.id.etModerada){
-            etActividad = "Moderada"
-        }
-
-        if (checkedID == R.id.etIntensa){
-            etActividad == "Intensa"
-        }
-
 
     }
 

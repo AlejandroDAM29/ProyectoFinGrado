@@ -6,7 +6,7 @@
     android:id="@+id/ActivityAuthBinding"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AuthActivity"
+    tools:context=".Pages.AuthActivity"
     android:orientation="vertical"
     android:background="@drawable/home_background">
 

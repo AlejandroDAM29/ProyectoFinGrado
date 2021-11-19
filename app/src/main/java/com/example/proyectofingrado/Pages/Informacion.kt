@@ -1,7 +1,8 @@
-package com.example.proyectofingrado
+package com.example.proyectofingrado.Pages
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.proyectofingrado.R
 
 class Informacion : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

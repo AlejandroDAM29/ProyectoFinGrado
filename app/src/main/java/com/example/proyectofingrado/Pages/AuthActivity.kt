@@ -1,4 +1,4 @@
-package com.example.proyectofingrado
+package com.example.proyectofingrado.Pages
 
 import android.content.Context
 import android.content.Intent
@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AlertDialog
+import com.example.proyectofingrado.R
 import com.example.proyectofingrado.databinding.ActivityAuthBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.firebase.auth.FirebaseAuth
