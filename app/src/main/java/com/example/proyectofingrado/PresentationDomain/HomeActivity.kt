@@ -1,4 +1,4 @@
-package com.example.proyectofingrado.Pages
+package com.example.proyectofingrado.PresentationDomain
 
 import android.content.Context
 import android.content.Intent
@@ -15,6 +15,7 @@ import com.android.volley.RequestQueue
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.example.proyectofingrado.DataClases.User
 import com.example.proyectofingrado.R
 import com.example.proyectofingrado.databinding.ActivityHomeBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -26,14 +27,12 @@ class HomeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHomeBinding
     lateinit var toolbar:Toolbar
-    lateinit var datosUsuario:JSONObject;
-    lateinit var emailUsuario:String;
+    //lateinit var datosUsuario:User;
     //lateinit var arrayUsuario:Array<String>
     //Datos para el contacto con el web-service que gestiona la base de datos MySQL
     lateinit var requesrQueue: RequestQueue
     val HttpURI = "https://alejandroexpdeveloper.com/usuario.php"
-
-
+    var datosUsuario: User?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -95,8 +94,13 @@ class HomeActivity : AppCompatActivity() {
                     //Requerimos el nombre del objeto booleano. En el web-servie se llama error
                     var noExiste:Boolean = false;
                     noExiste = obj.getBoolean("noExiste")
+                    datosUsuario = User(obj.getString("email"),
+                                        obj.getString("peso"),
+                                        obj.getString("altura"),
+                                        obj.getString("sexo"),
+                                        obj.getString("actividad"),
+                                        obj.getString("edad"))
 
-                    //TODO tener en cuenta este método para ver cómo conseguir parsear el resultado obtenido
 
                     if(noExiste){
                         val intent = Intent(this, DatosUsuario::class.java).apply {
@@ -104,9 +108,8 @@ class HomeActivity : AppCompatActivity() {
                         }
                         startActivity(intent)
                     }else{
-
                         //TODO si el usuario no existe, hacer pruebas aqui. Viene de la opción login de php
-                        Toast.makeText(this,emailUsuario,
+                        Toast.makeText(this,datosUsuario?.email.toString(),
                             Toast.LENGTH_LONG).show()
                     }
 

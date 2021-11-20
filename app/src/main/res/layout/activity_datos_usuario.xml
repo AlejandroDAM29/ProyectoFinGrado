@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".Pages.DatosUsuario">
+    tools:context=".PresentationDomain.DatosUsuario">
 
 
     <!--Incluyo el toolvar en la activity-->

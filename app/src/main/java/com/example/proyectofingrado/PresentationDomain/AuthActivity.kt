@@ -1,4 +1,4 @@
-package com.example.proyectofingrado.Pages
+package com.example.proyectofingrado.PresentationDomain
 
 import android.content.Context
 import android.content.Intent

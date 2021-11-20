@@ -1,4 +1,4 @@
-package com.example.proyectofingrado.Pages
+package com.example.proyectofingrado.PresentationDomain
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

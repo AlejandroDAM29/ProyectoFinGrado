@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/madera_auth"
     android:orientation="vertical"
-    tools:context=".Pages.AuthActivity">
+    tools:context=".PresentationDomain.AuthActivity">
 
 
     <EditText
