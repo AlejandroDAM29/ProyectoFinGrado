@@ -14,6 +14,8 @@ import com.android.volley.RequestQueue
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.example.proyectofingrado.DataClases.User
+import com.example.proyectofingrado.Interfaces.CalculateCalories
 import com.example.proyectofingrado.R
 import com.google.firebase.auth.FirebaseAuth
 import org.json.JSONObject
@@ -30,7 +32,7 @@ lateinit var radioGroup: RadioGroup
 var etActividad:String = "Sedentaria"
 lateinit var etEdad: EditText
 lateinit var btnInsert:Button
-
+lateinit var datosUsuario:User
 
 lateinit var toolbar: Toolbar
 
@@ -38,7 +40,7 @@ lateinit var toolbar: Toolbar
 lateinit var requesrQueue: RequestQueue
 val HttpURI = "https://alejandroexpdeveloper.com/usuario.php"
 
-class DatosUsuario : AppCompatActivity(), RadioGroup.OnCheckedChangeListener{
+class DatosUsuario : AppCompatActivity(), RadioGroup.OnCheckedChangeListener,CalculateCalories{
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_datos_usuario)
@@ -144,7 +146,15 @@ class DatosUsuario : AppCompatActivity(), RadioGroup.OnCheckedChangeListener{
                     if(error){
                         Toast.makeText(this,mensaje,Toast.LENGTH_LONG).show()
                     }else{
+                        //Si los datos son introducidos correctamente se llamará a la actividad para iniciar el servidor con el calculo de calorias ya realizado
+                        datosUsuario = User(peso,altura,etSexo, etActividad,edad)
+                        var caloriesToConsum = makeCalculate(datosUsuario.peso,datosUsuario.altura,datosUsuario.sexo,datosUsuario.actividad,datosUsuario.edad)
+                        val intent = Intent(this,SelectedFood::class.java).apply{
+                            putExtra("caloriesToConsum",caloriesToConsum)
+                        }
                         Toast.makeText(this,mensaje,Toast.LENGTH_LONG).show()
+                        startActivity(intent)
+
                     }
                 }, Response.ErrorListener {
                     //En caso de que la conexión tenga un error se activará el siguiente código

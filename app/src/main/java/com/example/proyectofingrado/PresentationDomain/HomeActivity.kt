@@ -16,6 +16,7 @@ import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.proyectofingrado.DataClases.User
+import com.example.proyectofingrado.Interfaces.CalculateCalories
 import com.example.proyectofingrado.R
 import com.example.proyectofingrado.databinding.ActivityHomeBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -23,16 +24,13 @@ import org.json.JSONException
 import org.json.JSONObject
 
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity(), CalculateCalories {
 
     private lateinit var binding: ActivityHomeBinding
     lateinit var toolbar:Toolbar
-    //lateinit var datosUsuario:User;
-    //lateinit var arrayUsuario:Array<String>
-    //Datos para el contacto con el web-service que gestiona la base de datos MySQL
     lateinit var requesrQueue: RequestQueue
     val HttpURI = "https://alejandroexpdeveloper.com/usuario.php"
-    var datosUsuario: User?=null
+    lateinit var datosUsuario: User
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -94,13 +92,6 @@ class HomeActivity : AppCompatActivity() {
                     //Requerimos el nombre del objeto booleano. En el web-servie se llama error
                     var noExiste:Boolean = false;
                     noExiste = obj.getBoolean("noExiste")
-                    datosUsuario = User(obj.getString("email"),
-                                        obj.getString("peso"),
-                                        obj.getString("altura"),
-                                        obj.getString("sexo"),
-                                        obj.getString("actividad"),
-                                        obj.getString("edad"))
-
 
                     if(noExiste){
                         val intent = Intent(this, DatosUsuario::class.java).apply {
@@ -108,9 +99,17 @@ class HomeActivity : AppCompatActivity() {
                         }
                         startActivity(intent)
                     }else{
-                        //TODO si el usuario no existe, hacer pruebas aqui. Viene de la opción login de php
-                        Toast.makeText(this,datosUsuario?.email.toString(),
-                            Toast.LENGTH_LONG).show()
+                        datosUsuario = User(obj.getString("peso"),
+                            obj.getString("altura"),
+                            obj.getString("sexo"),
+                            obj.getString("actividad"),
+                            obj.getString("edad"))
+                        var caloriesToConsum = makeCalculate(datosUsuario.peso,datosUsuario.altura,datosUsuario.sexo,datosUsuario.actividad,datosUsuario.edad)
+                        //Aquí traspaso las calorias a consumir según la persona. Se extraerá en la próxima actividad y se llamará al alimento correspondiente.
+                        val intent = Intent(this,SelectedFood::class.java).apply{
+                            putExtra("caloriesToConsum",caloriesToConsum)
+                        }
+                        startActivity(intent)
                     }
 
                 }catch (e: JSONException){
@@ -182,8 +181,17 @@ class HomeActivity : AppCompatActivity() {
 
     }//Fin del método onOptionsItemSelected
 
+    //Se manipula el método del botón Back de android para salir directamente de la aplicación y evitar el encolamiento de actividades
+    override fun onBackPressed() {
+        super.onBackPressed()
+        moveTaskToBack(true)
+
+    }
 
 
 
+}
+
+class ActivityHomeBinding {
 
 }

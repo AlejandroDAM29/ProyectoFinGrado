@@ -14,9 +14,11 @@
         <entry key="..\:/Users/eltit/AndroidStudioProjects/ProyectoFinGrado/app/src/main/res/layout/activity_home.xml" value="0.33" />
         <entry key="..\:/Users/eltit/AndroidStudioProjects/ProyectoFinGrado/app/src/main/res/layout/activity_informacion.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/eltit/AndroidStudioProjects/ProyectoFinGrado/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/eltit/AndroidStudioProjects/ProyectoFinGrado/app/src/main/res/layout/activity_selected_food.xml" value="0.33" />
         <entry key="..\:/Users/eltit/AndroidStudioProjects/ProyectoFinGrado/app/src/main/res/layout/tool_bar.xml" value="0.2765625" />
         <entry key="..\:/Users/eltit/AndroidStudioProjects/ProyectoFinGrado/app/src/main/res/menu/menu_en_activity.xml" value="0.278125" />
         <entry key="..\:/Users/eltit/AndroidStudioProjects/ProyectoFinGrado/app/src/main/res/menu/menu_en_datosusuario.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/eltit/AndroidStudioProjects/ProyectoFinGrado/app/src/main/res/menu/menu_en_selectedfood.xml" value="0.36666666666666664" />
       </map>
     </option>
   </component>
