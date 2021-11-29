@@ -63,13 +63,15 @@ class HomeActivity : AppCompatActivity(), CalculateCalories {
         //Inicizalizamos a RequestQueue
         requesrQueue = Volley.newRequestQueue(this)
 
-        val btn = findViewById<Button>(R.id.btnmostrar)
-        btn.setOnClickListener {
+        val btnMostrar = findViewById<Button>(R.id.btnmostrar)
+        btnMostrar.setOnClickListener {
             mostrarReceta()
         }
 
-
-
+        val btnGaleria = findViewById<Button>(R.id.btnGaleria)
+        btnGaleria.setOnClickListener{
+            startActivity(Intent(this, CaloricTable::class.java ))
+        }
 
 
 
@@ -136,7 +138,7 @@ class HomeActivity : AppCompatActivity(), CalculateCalories {
     //Este método sirve para cambiar el título al toolbar y hacer que el texto identifique al correo entrante
   private fun setup(email:String){
         title = "El recetario"
-        binding.texto1.text = "Bienvenido \n"+email
+        binding.texto1.text = "Bienvenido"
 
     }//Fin del método setup
 

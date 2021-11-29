@@ -18,12 +18,12 @@
         android:background="@color/white"
         android:hint="@string/correo"
         android:inputType="text"
-        android:textSize="@dimen/texto_login" />
+        android:textSize="31dp" />
 
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="@dimen/distancia" />
+        android:layout_height="10dp" />
 
     <EditText
         android:id="@+id/passwordEditText"
@@ -32,11 +32,11 @@
         android:background="@color/white"
         android:hint="@string/contrasena"
         android:inputType="text"
-        android:textSize="@dimen/texto_login" />
+        android:textSize="31dp" />
 
     <Space
         android:layout_width="match_parent"
-        android:layout_height="@dimen/distancia" />
+        android:layout_height="10dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -49,26 +49,26 @@
         <Button
             android:id="@+id/botonRegistro"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/altura_botones_registros"
+            android:layout_height="60dp"
             android:layout_marginEnd="5dp"
             android:layout_weight="1"
             android:background="#F57C00"
             android:elevation="10dp"
             android:text="@string/registro"
             android:textColor="@color/white"
-            android:textSize="35sp" />
+            android:textSize="35dp" />
 
         <Button
             android:id="@+id/botonAcceso"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/altura_botones_registros"
+            android:layout_height="60dp"
             android:layout_marginStart="5dp"
             android:layout_weight="1"
             android:background="#039BE5"
             android:elevation="10dp"
             android:text="@string/acceder"
             android:textColor="@color/white"
-            android:textSize="35sp" />
+            android:textSize="35dp" />
 
     </LinearLayout>
 
@@ -77,7 +77,7 @@
     <Button
         android:id="@+id/botonGoogle"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/altura_botones_registros"
+        android:layout_height="60dp"
         android:layout_marginLeft="4dp"
         android:layout_marginTop="4dp"
         android:layout_marginRight="4dp"

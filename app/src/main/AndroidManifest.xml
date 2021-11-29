@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/ThemeProyectoFinGrado">
         <activity
+            android:name=".PresentationDomain.CaloricTable"
+            android:exported="true" />
+        <activity
             android:name=".PresentationDomain.SelectedFood"
             android:exported="true" />
         <activity

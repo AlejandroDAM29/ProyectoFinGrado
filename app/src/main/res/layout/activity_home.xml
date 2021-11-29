@@ -21,7 +21,7 @@
         android:text="Email"
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:textSize="@dimen/texto_login"
+        android:textSize="35sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -42,7 +42,7 @@
         app:layout_constraintVertical_bias="0.357"/>
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnGaleria"
         style="@style/botones_home"
         android:text="Calorias"
         app:layout_constraintBottom_toBottomOf="parent"
