@@ -13,22 +13,28 @@
         android:theme="@style/ThemeProyectoFinGrado">
         <activity
             android:name=".PresentationDomain.CaloricTable"
+            android:screenOrientation="portrait"
             android:exported="true" />
         <activity
             android:name=".PresentationDomain.SelectedFood"
+            android:screenOrientation="portrait"
             android:exported="true" />
         <activity
             android:name=".PresentationDomain.DatosUsuario"
+            android:screenOrientation="portrait"
             android:exported="true" />
         <activity
             android:name=".PresentationDomain.Informacion"
+            android:screenOrientation="portrait"
             android:exported="true"
             android:theme="@style/Theme.MaterialComponents.Dialog.FixedSize" />
         <activity
             android:name=".PresentationDomain.HomeActivity"
+            android:screenOrientation="portrait"
             android:exported="true" /> <!-- Actividad de autentificación -->
         <activity
             android:name=".PresentationDomain.AuthActivity"
+            android:screenOrientation="portrait"
             android:exported="true"
             android:theme="@style/SplashScreen">
             <intent-filter>

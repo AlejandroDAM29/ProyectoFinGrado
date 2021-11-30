@@ -165,7 +165,7 @@ class HomeActivity : AppCompatActivity(), CalculateCalories {
 
         if (elegida == R.id.cerrar_sesion){
 
-            //salir de la sesión dee Firebase
+            //salir de la sesión de Firebase
             FirebaseAuth.getInstance().signOut()
 
             //Antes de salir, tenemos que asegurarnos de borrar los datos de usuario almancenados en sharedPreferences
@@ -186,7 +186,7 @@ class HomeActivity : AppCompatActivity(), CalculateCalories {
     //Se manipula el método del botón Back de android para salir directamente de la aplicación y evitar el encolamiento de actividades
     override fun onBackPressed() {
         super.onBackPressed()
-        moveTaskToBack(true)
+        //moveTaskToBack(true)
 
     }
 

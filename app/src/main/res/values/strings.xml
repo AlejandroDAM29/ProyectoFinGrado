@@ -13,6 +13,24 @@
     <string name="registro">Register</string>
     <string name="acceder">Access</string>
 
+    <!--Actividad información-->
+    <string name="descripcionInfo">¿Cómo funciona "El recetero"?</string>
+    <string name="queEsInfo">
+        \tEl recetero es una apliacción dedicada a todas aquellas personas que buscan una pérdida de peso o una rutina alimentaria más saludable y
+        ajustada a sus necesidades específicas. Esta aplicación surge como sugerencia para plantar cara al aumento de casos de obesidad en los
+        últimos años, los cuáles vienen influenciados en gran medida por un ritmo de vida más acelerado. Gracias a la facilidad que ofrece la aplicación
+        para proporcionar una receta, la alimentación saludable estará al alcance de más personas, mejorando su salud.
+
+        \n\nPara conseguir esto, "El recetario" realiza un cálculo para obtener las calorías que debe tomar el usuario en cada comida a razón de
+        su edad, género, peso, altura y actividad física. También tiene en cuenta el momento del día en el que te encuentras, de forma que siempre tendrás
+        una receta acorde a la situación en que te encuentres a golpe de un botón. Todos estos datos son recogidos en el volúmen 72 de la sociedad
+        española de cardiología en noviembre de 2019.
+    </string>
+
+    <string name="creadorInfo">Desarrollo</string>
+    <string name="infoCreadorInfo">
+        Este proyecto está desarollado por Alejandro Expósito Ortiz, desarrollador de software especializado en
+    </string>
 
     <!--Archivo de sharedePreference-->
     <string name="archivo_login">com.example.proyectofingrado.PREFERENCE_FILE_KEY</string>

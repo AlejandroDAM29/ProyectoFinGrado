@@ -114,14 +114,15 @@ class SelectedFood : AppCompatActivity(), CurrentTime {
     fun insertDataXML(food:Food){
         nombreComida.text = recievedFood.nombre //Nombre del plato
         setImage(recievedFood.imagen) //Imagen del plato
-        ingredientesComida.text = recievedFood.ingredientes+"\n\nPreparación:"
+        ingredientesComida.text = "Calorías: "+recievedFood.calorias+"\n- - - - - - - - - - - -\n"+recievedFood.ingredientes+"\n" +
+                "- - - - - - - - - - - -\nPreparación:"
         recetaComida.text = recievedFood.receta
     }
 
     //Función para que el botón Back de android siempre te devuelva a la actividad Home
     override fun onBackPressed() {
         super.onBackPressed()
-        startActivity(Intent(this,HomeActivity::class.java))
+        //startActivity(Intent(this,HomeActivity::class.java))
     }
 
 

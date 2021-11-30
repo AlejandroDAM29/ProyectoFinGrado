@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO
 import com.example.proyectofingrado.R
 import com.example.proyectofingrado.databinding.ActivityAuthBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -18,12 +20,14 @@ import com.google.firebase.auth.GoogleAuthProvider
 
 class AuthActivity : AppCompatActivity() {
 
-
     private lateinit var binding: ActivityAuthBinding
     private val INICIO_GOOGLE = 100
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        //Para el modo claro o el modo oscuro
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 
         //Introduzco el splashScreen
         setTheme(R.style.ThemeProyectoFinGrado)
@@ -177,7 +181,7 @@ class AuthActivity : AppCompatActivity() {
         if (password.length < 6) {
             val num_caracter = AlertDialog.Builder(this)
             num_caracter.setTitle("Contraseña incorrecta")
-            num_caracter.setMessage("La contraseña debe tener 6 caracteres como mínumo")
+            num_caracter.setMessage("La contraseña debe tener 6 caracteres como mínimo")
             num_caracter.setPositiveButton("Ok", null)
             val mens_caracter = num_caracter.create()
             mens_caracter.show()

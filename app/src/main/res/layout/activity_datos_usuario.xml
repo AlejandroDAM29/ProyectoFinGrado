@@ -48,7 +48,7 @@
         android:id="@+id/etAltura"
         style="@style/botones_formulario"
         android:drawableStart="@drawable/icono_altura"
-        android:hint="Altura"
+        android:hint="Altura cm"
         android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -64,7 +64,7 @@
         android:drawableStart="@drawable/icono_genero"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.277"
+        app:layout_constraintHorizontal_bias="0.253"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.480" />
