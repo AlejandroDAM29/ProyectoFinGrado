@@ -32,7 +32,6 @@ class SelectedFood : AppCompatActivity(), CurrentTime {
     lateinit var ingredientesComida: TextView
     lateinit var recetaComida: TextView
     lateinit var recievedFood:Food
-
     val HttpURI = "https://alejandroexpdeveloper.com/usuario.php"
     lateinit var requesrQueue: RequestQueue
 

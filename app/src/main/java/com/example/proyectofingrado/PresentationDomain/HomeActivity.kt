@@ -22,6 +22,7 @@ import com.example.proyectofingrado.databinding.ActivityHomeBinding
 import com.google.firebase.auth.FirebaseAuth
 import org.json.JSONException
 import org.json.JSONObject
+import kotlin.system.exitProcess
 
 
 class HomeActivity : AppCompatActivity(), CalculateCalories {
@@ -185,9 +186,7 @@ class HomeActivity : AppCompatActivity(), CalculateCalories {
 
     //Se manipula el método del botón Back de android para salir directamente de la aplicación y evitar el encolamiento de actividades
     override fun onBackPressed() {
-        super.onBackPressed()
-        //moveTaskToBack(true)
-
+        finishAffinity()
     }
 
 

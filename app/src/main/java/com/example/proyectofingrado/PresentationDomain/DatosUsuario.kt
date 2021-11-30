@@ -191,8 +191,11 @@ class DatosUsuario : AppCompatActivity(), RadioGroup.OnCheckedChangeListener,Cal
             R.id.etHombre -> etSexo = "Hombre"
             R.id.etMujer -> etSexo = "Mujer"
         }
-
     }
 
+override fun onStop(){
+    super.onStop()
+    finish()
+}
 
 }
