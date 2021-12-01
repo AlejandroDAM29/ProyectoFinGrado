@@ -111,7 +111,7 @@ class HomeActivity : AppCompatActivity(), CalculateCalories {
                         //Aquí traspaso las calorias a consumir según la persona. Se extraerá en la próxima actividad y se llamará al alimento correspondiente.
                         val intent = Intent(this,SelectedFood::class.java).apply{
                             putExtra("caloriesToConsum",caloriesToConsum)
-                        }
+                        }//z
                         startActivity(intent)
                     }
 
