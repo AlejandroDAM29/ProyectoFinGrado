@@ -9,7 +9,6 @@ class Informacion : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_informacion)
 
-        //Le pongo el título a la ventana de información
         title="Informacion"
     }
 }

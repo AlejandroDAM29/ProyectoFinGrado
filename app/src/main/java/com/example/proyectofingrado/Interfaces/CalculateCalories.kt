@@ -7,7 +7,6 @@ interface CalculateCalories {
         var peso = peso.toInt()
         var altura = altura.toInt()
         var edad = edad.toInt()
-
         //En el caso de ser hombre
         if (sexo=="Hombre"){
             when (actividad) {

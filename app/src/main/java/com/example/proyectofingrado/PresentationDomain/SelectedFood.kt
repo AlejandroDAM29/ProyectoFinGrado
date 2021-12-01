@@ -51,20 +51,11 @@ class SelectedFood : AppCompatActivity(), CurrentTime {
 
         //Inicizalizamos a RequestQueue
         requesrQueue = Volley.newRequestQueue(this)
-
         //Consulta de datos en el servidor dependiendo de los datos introducidos por el usuario en el formulario
         consultaReceta()
-
-
-
-
     }
 
-
-
-
     private fun consultaReceta() {
-
         //Extraigo las calorias a consumir calculadas en la clase anterior.
         val bundle = intent.extras
         val caloriesToConsum = bundle?.getInt("caloriesToConsum")
@@ -83,11 +74,9 @@ class SelectedFood : AppCompatActivity(), CurrentTime {
 
                     //Se introducen los datos obtenidos del servidor en el XML
                     insertDataXML(recievedFood)
-
                 }catch (e: JSONException){
                     e.printStackTrace()
                 }
-
             }, Response.ErrorListener {
                 Toast.makeText(this,"Volley incorrecto",
                     Toast.LENGTH_LONG).show()
@@ -108,7 +97,6 @@ class SelectedFood : AppCompatActivity(), CurrentTime {
         Glide.with(this).load(imagen).into(imagenComida)
     }
 
-
     //Para introducir los datos del server en el XML
     fun insertDataXML(food:Food){
         nombreComida.text = recievedFood.nombre //Nombre del plato
@@ -124,50 +112,35 @@ class SelectedFood : AppCompatActivity(), CurrentTime {
         //startActivity(Intent(this,HomeActivity::class.java))
     }
 
-
     //Creación del menú en el activity
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_en_selectedfood,menu)
         return true
     }
 
-
     //Método para seleccionar los items del menú toolbar y ejecutar su acción
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-
         /*La id que almaceno aquí equivale a una de las elegidas dentro del menú.xml que se
          ha creado en la carpeta menú*/
         val elegida = item.itemId
-
         //Opciones posibles
         if (elegida == R.id.informacion){
             var ir_info = Intent(this, Informacion::class.java)
             startActivity(ir_info)
         }
-
         if (elegida == R.id.cerrar_sesion){
-
             //salir de la sesión dee Firebase
             FirebaseAuth.getInstance().signOut()
-
             //Antes de salir, tenemos que asegurarnos de borrar los datos de usuario almancenados en sharedPreferences
             val datos_usuario = getSharedPreferences(getString(R.string.archivo_login), Context.MODE_PRIVATE).edit()
             datos_usuario.clear()
             datos_usuario.apply()
-
             //Ir a la pantalla de anterior para salir de la sesión de usuario
             val intent = Intent(this, AuthActivity::class.java)
             startActivity(intent)
         }
-
-
         //Si ha habido un error, retornará la elección padre por defecto
         return super.onOptionsItemSelected(item)
-
-    }//Fin del método onOptionsItemSelected
-
-
-
-
+    }
 
 }
