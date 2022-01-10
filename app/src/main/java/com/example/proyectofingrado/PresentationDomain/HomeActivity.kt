@@ -20,6 +20,7 @@ import com.example.proyectofingrado.Interfaces.CalculateCalories
 import com.example.proyectofingrado.R
 import com.example.proyectofingrado.databinding.ActivityHomeBinding
 import com.google.firebase.auth.FirebaseAuth
+import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
 
@@ -37,34 +38,51 @@ class HomeActivity : AppCompatActivity(), CalculateCalories {
 
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         //Activo el toolbar en la activity
         toolbar = findViewById(R.id.tool_bar)
         toolbar.setTitleTextColor(Color.WHITE)
         setSupportActionBar(toolbar)
+
+
+
         val bundle = intent.extras
         val email = bundle?.getString("email")
+
         setup(email ?:"")
+
+
+
         /*El código siguiente almacenará los datos de sesión de usuario para evitar que se tenga que loguear de nuevo
         * a través de almacenamiento de datos de tipo clave-valor. Lo pongo en modo edición para almacenar a los usuarios
         * que entren en la app*/
         val datos_almacenados = getSharedPreferences(getString(R.string.archivo_login), Context.MODE_PRIVATE).edit()
         datos_almacenados.putString("email",email)
         datos_almacenados.apply()
+
+
         //Inicizalizamos a RequestQueue
         requesrQueue = Volley.newRequestQueue(this)
+
         val btnMostrar = findViewById<Button>(R.id.btnmostrar)
         btnMostrar.setOnClickListener {
             mostrarReceta()
         }
+
         val btnGaleria = findViewById<Button>(R.id.btnGaleria)
         btnGaleria.setOnClickListener{
             startActivity(Intent(this, CaloricTable::class.java ))
         }
-    }
+
+
+
+    }//Fin de método onCreate
+
 
     /*Si el usuario existe en la base de datos MySql remota, se mostrará la receta. Si no está registrado se llevará
     * al usuario a la pantalla de registro de datos para ingresar sus datos en la base de datos*/
     private fun mostrarReceta() {
+
         //Obtenemos el email para ver si está en la base de datos. Esto significaría que el usuario ya ha rellenado sus datos anteriormente
         val bundle = intent.extras
         val email = bundle?.getString("email")
@@ -77,7 +95,8 @@ class HomeActivity : AppCompatActivity(), CalculateCalories {
                     //Requerimos el nombre del objeto booleano. En el web-servie se llama error
                     var noExiste:Boolean = false;
                     noExiste = obj.getBoolean("noExiste")
-                    if(noExiste){
+
+                   if(noExiste){
                         val intent = Intent(this, DatosUsuario::class.java).apply {
                             putExtra("email", email)
                         }
@@ -89,15 +108,17 @@ class HomeActivity : AppCompatActivity(), CalculateCalories {
                             obj.getString("actividad"),
                             obj.getString("edad"))
                         var caloriesToConsum = makeCalculate(datosUsuario.peso,datosUsuario.altura,datosUsuario.sexo,datosUsuario.actividad,datosUsuario.edad)
-                        //Aquí traspaso las calorias a consumir según la persona. Se extraerá en la próxima actividad y se llamará al alimento correspondiente.
+                        //Aquí traspaso las calorias a consumir según la persona. Se extraerá en la próxima actividad y se llamará al alimento correspondiente.*/
                         val intent = Intent(this,SelectedFood::class.java).apply{
                             putExtra("caloriesToConsum",caloriesToConsum)
-                        }//z
+                        }
                         startActivity(intent)
                     }
+
                 }catch (e: JSONException){
                     e.printStackTrace()
                 }
+
             }, Response.ErrorListener {
                 Toast.makeText(this,"Volley incorrecto",
                     Toast.LENGTH_LONG).show()
@@ -112,11 +133,16 @@ class HomeActivity : AppCompatActivity(), CalculateCalories {
         requesrQueue.add(stringRequest)
     }
 
-  //Este método sirve para cambiar el título al toolbar y hacer que el texto identifique al correo entrante
+
+
+
+    //Este método sirve para cambiar el título al toolbar y hacer que el texto identifique al correo entrante
   private fun setup(email:String){
         title = "El recetario"
         binding.texto1.text = "Bienvenido"
-    }
+
+    }//Fin del método setup
+
 
     //Creación del menú en el activity
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -124,35 +150,51 @@ class HomeActivity : AppCompatActivity(), CalculateCalories {
         return true
     }
 
+
     //Método para seleccionar los items del menú toolbar y ejecutar su acción
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
         /*La id que almaceno aquí equivale a una de las elegidas dentro del menú.xml que se
          ha creado en la carpeta menú*/
         val elegida = item.itemId
+
         //Opciones posibles
         if (elegida == R.id.informacion){
             var ir_info = Intent(this, Informacion::class.java)
             startActivity(ir_info)
         }
+
         if (elegida == R.id.cerrar_sesion){
+
             //salir de la sesión de Firebase
             FirebaseAuth.getInstance().signOut()
+
             //Antes de salir, tenemos que asegurarnos de borrar los datos de usuario almancenados en sharedPreferences
             val datos_usuario = getSharedPreferences(getString(R.string.archivo_login), Context.MODE_PRIVATE).edit()
             datos_usuario.clear()
             datos_usuario.apply()
+
             //Ir a la pantalla de anterior para salir de la sesión de usuario
             onBackPressed()
         }
+
+
         //Si ha habido un error, retornará la elección padre por defecto
         return super.onOptionsItemSelected(item)
-    }
+
+    }//Fin del método onOptionsItemSelected
 
     //Se manipula el método del botón Back de android para salir directamente de la aplicación y evitar el encolamiento de actividades
     override fun onBackPressed() {
-        finishAffinity()
+        super.onBackPressed()
+        //moveTaskToBack(true)
+
     }
+
+
 
 }
 
-class ActivityHomeBinding {}
+class ActivityHomeBinding {
+
+}

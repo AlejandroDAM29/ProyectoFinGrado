@@ -38,6 +38,7 @@
             <ImageView
                 android:id="@+id/imagenComida"
                 android:layout_width="match_parent"
+                android:src="@drawable/imagen_no_disponible"
                 android:layout_height="wrap_content"></ImageView>
 
             <TextView

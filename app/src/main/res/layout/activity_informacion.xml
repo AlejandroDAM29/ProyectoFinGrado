@@ -38,17 +38,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:textSize="17sp"
-                android:textStyle="bold"
-                android:text="@string/creadorInfo" />
-
-            <TextView
-                android:id="@+id/textView12"
-                android:layout_marginTop="5dp"
-                android:paddingBottom="15dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/desarrolloInfo" />
+                android:text="Prueba 2" />
         </LinearLayout>
     </ScrollView>
 
