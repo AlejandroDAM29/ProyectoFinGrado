@@ -47,7 +47,7 @@ class AuthActivity : AppCompatActivity() {
         title = "Auth"
 
         //Cuando el usuario pulse el boton de registrar se ejecutará el siguiente código
-        binding.botonRegistro.setOnClickListener {
+        binding.registerButton.setOnClickListener {
 
             //Tenemos que comprobar que los datos introducidos son correctos. Para eso este if
             if (binding.emailEditText.text.isNotEmpty() && binding.passwordEditText.text.isNotEmpty() && binding.passwordEditText.text.toString().length >= 6) {
@@ -82,7 +82,7 @@ class AuthActivity : AppCompatActivity() {
 
 
         //Cuando el usuario pulse el botón de acceder, se ejecutará el siguiente código
-        binding.botonAcceso.setOnClickListener {
+        binding.accessButton.setOnClickListener {
 
             //Tenemos que comprobar que los datos introducidos son correctos. Para eso este if
 
